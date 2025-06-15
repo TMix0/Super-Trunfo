@@ -3,28 +3,32 @@
 int main() {
 
     char estado1[20];
-    char codigo1[3];
+    char codigo1[5];
     char nome1[20];
     int populacao1;
     float area1;
     float pib1;
     int pontosTuristicos1;
+    float densidadePopulacional1;
+    float pibPerCapita1;
 
     char estado2[20];
-    char codigo2[3];
+    char codigo2[5];
     char nome2[20];
     int populacao2;
     float area2;
     float pib2;
     int pontosTuristicos2;
+    float densidadePopulacional2;
+    float pibPerCapita2;
 
     // Entrada dos dados do primeiro estado
     printf("Digite o nome do primeiro estado: ");
-    scanf(" %[^\n]", estado1);
+    scanf("%s", estado1);
     printf("Digite o código do primeiro estado: ");
     scanf("%s", codigo1);
     printf("Digite o nome da primeira cidade: ");
-    scanf(" %[^\n]", nome1);
+    scanf("%s", nome1);
     printf("Digite a população do primeiro estado: ");
     scanf("%d", &populacao1);
     printf("Digite a área do primeiro estado (em km²): ");
@@ -38,11 +42,11 @@ int main() {
 
     // Entrada dos dados do segundo estado
     printf("Digite o nome do segundo estado: ");
-    scanf(" %[^\n]", estado2);
+    scanf(" %s", estado2);
     printf("Digite o código do segundo estado: ");
     scanf("%s", codigo2);
     printf("Digite o nome da segunda cidade: ");
-    scanf(" %[^\n]", nome2);
+    scanf(" %s", nome2);
     printf("Digite a população do segundo estado: ");
     scanf("%d", &populacao2);
     printf("Digite a área do segundo estado (em km²): ");
@@ -52,29 +56,40 @@ int main() {
     printf("Digite o número de pontos turísticos do segundo estado: ");
     scanf("%d", &pontosTuristicos2);
 
-    printf("\n==============");
+    printf("\n======================");
+
+    // Cálculo da densidade populacional e PIB per capita
+    densidadePopulacional1 = populacao1 / area1;
+    pibPerCapita1 = pib1 / populacao1; // Convertendo PIB
+
+    densidadePopulacional2 = populacao2 / area2;
+    pibPerCapita2 = pib2 / populacao2; // Convertendo PIB 
 
     // Exibição dos dados do primeiro estado
-    printf("Dados do primeiro estado:\n");
-    printf("Nome: %s\n", estado1);
+    printf("Dados da primeira carta:\n");
+    printf("Estado: %s\n", estado1);
     printf("Código: %s\n", codigo1);
-    printf("Cidade: %s\n", nome1);
+    printf("Nome da cidade: %s\n", nome1);
     printf("População: %d\n", populacao1);
     printf("Área: %.2f km²\n", area1);
     printf("PIB: %.2f bilhões de R$\n", pib1);
-    printf("Pontos turísticos: %d\n", pontosTuristicos1);
+    printf("Número de Pontos Turísticos: %d\n", pontosTuristicos1);
+    printf("Densidade populacional do primeiro estado: %.2f hab/km²\n", densidadePopulacional1);
+    printf("Pib per capita do primeiro estado: %.2f R$\n", pibPerCapita1);
 
-    printf("\n==============");
+    printf("\n=====================");
 
     // Exibição dos dados do segundo estado
-    printf("Dados do segundo estado:\n");
-    printf("Nome: %s\n", estado2);
+    printf("Dados da segunda carta:\n");
+    printf("Estado: %s\n", estado2);
     printf("Código: %s\n", codigo2);
-    printf("Cidade: %s\n", nome2);
+    printf("Nome da cidade: %s\n", nome2);
     printf("População: %d\n", populacao2);
     printf("Área: %.2f km²\n", area2);
     printf("PIB: %.2f bilhões de R$\n", pib2);
-    printf("Pontos turísticos: %d\n", pontosTuristicos2);
+    printf("Número de Pontos Turísticos: %d\n", pontosTuristicos2);
+    printf("Densidade populacional do segundo estado: %.2f hab/km²\n", densidadePopulacional2);
+    printf("Pib per capita do segundo estado: %.2f R$\n", pibPerCapita2);
 
     return 0;
 }

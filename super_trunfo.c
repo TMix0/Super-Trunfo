@@ -1,7 +1,9 @@
 #include <stdio.h>
 
-int main() {
+int main()
+{
 
+    // Declaração das variáveis para o primeiro estado
     char estado1[20];
     char codigo1[5];
     char nome1[20];
@@ -12,8 +14,9 @@ int main() {
     float densidadePopulacional1;
     float pibPerCapita1;
 
+    // Declaração das variáveis para o segundo estado
     char estado2[20];
-    char codigo2[5];
+    char codigo2[6];
     char nome2[20];
     int populacao2;
     float area2;
@@ -22,39 +25,52 @@ int main() {
     float densidadePopulacional2;
     float pibPerCapita2;
 
+    // Variáveis para armazenar os resultados da comparação
+    int resultadoPopulacao;
+    int resultadoArea;
+    int resultadoPib;
+    int resultadoPontosTuristicos;
+    int resultadoDensidadePopulacional;
+    int resultadoPibPerCapita;
+    float SuperPoder;
+
     // Entrada dos dados do primeiro estado
     printf("Digite o nome do primeiro estado: ");
-    scanf("%s", estado1);
-    printf("Digite o código do primeiro estado: ");
-    scanf("%s", codigo1);
-    printf("Digite o nome da primeira cidade: ");
-    scanf("%s", nome1);
-    printf("Digite a população do primeiro estado: ");
-    scanf("%d", &populacao1);
-    printf("Digite a área do primeiro estado (em km²): ");
-    scanf("%f", &area1);
-    printf("Digite o PIB do primeiro estado (em bilhões de R$): ");
-    scanf("%f", &pib1);
-    printf("Digite o número de pontos turísticos do primeiro estado: ");
-    scanf("%d", &pontosTuristicos1);
+    scanf(" %[^\n]", estado1);
 
-    printf("\n");
+    printf("Digite o código do primeiro estado: ");
+    scanf(" %[^\n]", codigo1);
+
+    printf("Digite o nome da primeira cidade: ");
+    scanf(" %[^\n]", nome1);
+
+    printf("Digite a população do primeiro estado: ");
+    scanf(" %d", &populacao1);
+    printf("Digite a área do primeiro estado (em km²): ");
+    scanf(" %f", &area1);
+    printf("Digite o PIB do primeiro estado (em bilhões de R$): ");
+    scanf(" %f", &pib1);
+    printf("Digite o número de pontos turísticos do primeiro estado: ");
+    scanf(" %d", &pontosTuristicos1);
 
     // Entrada dos dados do segundo estado
-    printf("Digite o nome do segundo estado: ");
-    scanf(" %s", estado2);
+   printf("Digite o nome do segundo estado: ");
+    scanf(" %[^\n]", estado2);
+
     printf("Digite o código do segundo estado: ");
-    scanf("%s", codigo2);
+    scanf(" %[^\n]", codigo2);
+
     printf("Digite o nome da segunda cidade: ");
-    scanf(" %s", nome2);
+    scanf(" %[^\n]", nome2);
+
     printf("Digite a população do segundo estado: ");
-    scanf("%d", &populacao2);
+    scanf(" %d", &populacao2);
     printf("Digite a área do segundo estado (em km²): ");
-    scanf("%f", &area2);
+    scanf(" %f", &area2);
     printf("Digite o PIB do segundo estado (em bilhões de R$): ");
-    scanf("%f", &pib2);
+    scanf(" %f", &pib2);
     printf("Digite o número de pontos turísticos do segundo estado: ");
-    scanf("%d", &pontosTuristicos2);
+    scanf(" %d", &pontosTuristicos2);
 
     printf("\n======================");
 
@@ -63,7 +79,7 @@ int main() {
     pibPerCapita1 = pib1 / populacao1; // Convertendo PIB
 
     densidadePopulacional2 = populacao2 / area2;
-    pibPerCapita2 = pib2 / populacao2; // Convertendo PIB 
+    pibPerCapita2 = pib2 / populacao2; // Convertendo PIB
 
     // Exibição dos dados do primeiro estado
     printf("Dados da primeira carta:\n");
@@ -90,6 +106,23 @@ int main() {
     printf("Número de Pontos Turísticos: %d\n", pontosTuristicos2);
     printf("Densidade populacional do segundo estado: %.2f hab/km²\n", densidadePopulacional2);
     printf("Pib per capita do segundo estado: %.2f R$\n", pibPerCapita2);
+
+    printf("\n=====================\n");
+    // Comparação dos estados
+    resultadoArea = (area1 < area2);
+    resultadoPopulacao = (populacao1 < populacao2);
+    resultadoPib = (pib1 < pib2);
+    resultadoPontosTuristicos = (pontosTuristicos1 < pontosTuristicos2);
+    resultadoDensidadePopulacional = (densidadePopulacional1 > densidadePopulacional2);
+    resultadoPibPerCapita = (pibPerCapita1 < pibPerCapita2);
+
+    printf("Comparação dos estados:\n");
+    printf("Resultado população: %i\n", resultadoPopulacao);
+    printf("Resultado área: %i\n", resultadoArea);
+    printf("Resultado PIB: %i\n", resultadoPib);
+    printf("Resultado pontos turísticos: %i\n", resultadoPontosTuristicos);
+    printf("Resultado densidade populacional: %i\n", resultadoDensidadePopulacional);
+    printf("Resultado PIB per capita: %i\n", resultadoPibPerCapita);
 
     return 0;
 }
